@@ -99,7 +99,11 @@ jobs:
         echo "✅ Sanity test: PASSED" >> report.md
     
     # ✅ Use CLI instead of nonexistent iterative/cml action
-    - name: Comment test report with CML
+    - name: Write CML report
+      env:
+        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        cml comment create report.md --driver github --token ${{ secrets.GITHUB_TOKEN }}
+        # Post reports as comments in GitHub PRs
+        cat results.txt >> report.md
+        cml comment create report.md
 
