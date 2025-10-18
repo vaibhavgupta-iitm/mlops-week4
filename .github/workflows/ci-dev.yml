@@ -101,6 +101,5 @@ jobs:
     # ✅ Use CLI instead of nonexistent iterative/cml action
     - name: Comment test report with CML
       run: |
-        cml comment create report.md --update-comment
-      env:
-        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        cml comment create report.md --driver github --token ${{ secrets.GITHUB_TOKEN }}
+
