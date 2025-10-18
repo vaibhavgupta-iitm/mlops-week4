@@ -74,7 +74,7 @@ jobs:
         python main.py --setup-dvc
     
     - name: Generate test report with CML
-      uses: iterative/setup-cml@v1
+      uses: iterative/setup-cml@v2
     
     - name: Create test report
       run: |
@@ -98,7 +98,7 @@ jobs:
         echo "✅ Sanity test: PASSED" >> report.md
     
     - name: Comment test report
-      uses: iterative/cml@v0
+      uses: iterative/cml@v3
       with:
         file: report.md
         repo-token: ${{ secrets.GITHUB_TOKEN }}
