@@ -1,0 +1,39 @@
+# Configuration file for IRIS pipeline
+
+# Data configuration
+data:
+  test_size: 0.4
+  random_state: 42
+  feature_columns:
+    - sepal_length
+    - sepal_width
+    - petal_length
+    - petal_width
+  target_column: species
+  expected_species:
+    - setosa
+    - versicolor
+    - virginica
+
+# Model configuration
+model:
+  type: DecisionTreeClassifier
+  max_depth: 3
+  random_state: 1
+
+# DVC configuration
+dvc:
+  remote_name: gcsremote
+  bucket_uri: "gs://mlops-course-verdant-victory-473118-k0-unique-week2-2/iris-pipeline"
+
+# Paths
+paths:
+  data_dir: "iris-dvc-pipeline"
+  data_file: "iris-dvc-pipeline/v1_data.csv"
+  model_file: "iris-dvc-pipeline/model.joblib"
+  metrics_file: "iris-dvc-pipeline/metrics.txt"
+
+# Evaluation thresholds
+evaluation:
+  min_accuracy: 0.85
+  max_accuracy: 1.0
