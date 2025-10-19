@@ -10,6 +10,7 @@ permissions:
   contents: write
   pull-requests: write
 
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -100,6 +101,9 @@ jobs:
         echo "✅ Model evaluation: PASSED" >> report.md
         echo "✅ DVC integration: PASSED" >> report.md
         echo "✅ Sanity test: PASSED" >> report.md
+        echo "" >> report.md
+        echo "### 🔢 Model Metrics" >> report.md
+        cat iris-dvc-pipeline/metrics.txt >> report.md
     
     - name: Write CML report
       env:

@@ -141,6 +141,9 @@ jobs:
           echo "- Model evaluation tests: 100%" >> report.md
           echo "- DVC operations: Verified" >> report.md
           echo "- End-to-end pipeline: Verified" >> report.md
+          echo "" >> report.md
+          echo "### 🔢 Model Metrics" >> report.md
+          cat iris-dvc-pipeline/metrics.txt >> report.md
 
       # -----------------------------
       # 13. Post report using CML
