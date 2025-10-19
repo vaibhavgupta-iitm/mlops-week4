@@ -61,9 +61,9 @@ jobs:
       - name: Upload coverage reports
         uses: codecov/codecov-action@v3
         with:
-          file: ./coverage.xml
           flags: main
           name: main-coverage
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Run sanity test
         run: python main.py --setup-dvc
